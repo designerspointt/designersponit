@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Designer’s Point — Custom T‑Shirt Printing</title>
+  <meta name="description" content="Premium custom T‑shirt printing, hoodies, jerseys, caps, and more. Fast turnarounds, durable prints, pro design help." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --bg-2:#0f141b;
+      --card:#131a22;
+      --text:#e8eef7;
+      --muted:#9db0c9;
+      --brand:#f59f00;
+      --brand-2:#ff6b00;
+      --ok:#2ecc71;
+      --error:#ff4757;
+      --border:#1d2733;
+      --shadow:0 8px 28px rgba(0,0,0,.45);
+      --radius:16px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(255,107,0,.08), transparent 60%) , radial-gradient(1000px 700px at -10% 20%, rgba(245,159,0,.07), transparent 50%) , var(--bg);
+      scroll-behavior:smooth;
+      line-height:1.6;
+    }
+     .icon{
+    width:var(--size); height:var(--size);
+    border-radius:var(--radius);
+    
+    position:relative;
+    place-items:center;
+  }
+  /* soft outer ring */
+  .icon:after{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    box-shadow: inset 0 0 0 2px var(--ring);
+    pointer-events:none;
+  }
+  .icon img{
+    width:200px; height:100px; object-fit:contain; 
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+  }
+
+  /* optional caption */
+  .label{ margin-top:16px; text-align:center; color:#b9c6d9; letter-spacing:.3px }
+    a{color:var(--text); text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    /* Header */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(180deg, rgba(11,15,20,.85), rgba(11,15,20,.55));
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      margin:0 auto; max-width:var(--maxw); padding:12px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px}
+    .logo{
+      width:34px; height:34px; border:2px solid var(--brand); border-radius:10px;
+      display:grid; place-items:center; position:relative; overflow:hidden;
+    }
+    .logo:before{
+      content:""; width:18px; height:18px; border:2px solid var(--text); border-radius:4px;
+    }
+    .nav a.link{opacity:.85; padding:8px 10px; border-radius:10px}
+    .nav a.link:hover{background:rgba(255,255,255,.06); opacity:1}
+    .cta{
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#121416; padding:10px 14px; border-radius:12px; font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    .cta:hover{transform:translateY(-1px)}
+    /* Sections */
+    section{scroll-margin-top:70px}
+    .hero{
+      padding:96px 20px 64px; border-bottom:1px solid var(--border);
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto}
+    .hero-grid{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
+    }
+    .chip{
+      display:inline-flex; gap:8px; align-items:center; background:#111923; border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px; color:var(--muted); font-size:.9rem;
+    }
+    .chip span{width:8px; height:8px; background:var(--ok); border-radius:50%}
+    h1{
+      margin:12px 0 10px; font-size:clamp(30px, 5vw, 52px); line-height:1.15;
+      letter-spacing:.1px;
+    }
+    .lead{color:var(--muted); font-size:1.05rem; max-width:56ch}
+    .actions{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .ghost{
+      border:1px solid var(--border); padding:10px 14px; border-radius:12px; color:var(--text)
+    }
+    .card{
+      background:linear-gradient(180deg,#101720,#0e141c); border:1px solid var(--border);
+      border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+    }
+    .tag{display:inline-block; padding:4px 8px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:.85rem}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    /* Sections titles */
+    .title{font-size:1.8rem; margin:0 0 6px}
+    .sub{color:var(--muted); margin:0 0 18px}
+    /* Process list */
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .step h4{margin:8px 0 6px}
+    .bullet{width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-weight:800;
+       background:linear-gradient(90deg,rgba(245,159,0,.25),rgba(255,107,0,.25)); border:1px solid var(--border)}
+    /* Footer/Contact */
+    .contact{
+      display:grid; grid-template-columns:1.2fr .8fr; gap:16px
+    }
+    .input, textarea{
+      width:100%; padding:12px 14px; border-radius:10px; background:#0e151e; color:var(--text);
+      border:1px solid var(--border); outline:none;
+    }
+    .input:focus, textarea:focus{border-color:#2a3a4f}
+    textarea{min-height:120px; resize:vertical}
+    footer{border-top:1px solid var(--border); color:var(--muted); padding:30px 20px; margin-top:30px}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid, .grid-3, .steps, .contact{grid-template-columns:1fr}
+    }
+
+    /* Bottom floating nav */
+    .bottom-nav{
+      position:fixed; left:50%; bottom:16px; transform:translateX(-50%);
+      background:linear-gradient(180deg, rgba(15,20,27,.92), rgba(15,20,27,.82));
+      border:1px solid var(--border); box-shadow:var(--shadow);
+      border-radius:18px; padding:8px; z-index:60; display:flex; gap:6px;
+      backdrop-filter:saturate(140%) blur(8px);
+      max-width:calc(var(--maxw) + 40px);
+    }
+    .bottom-nav a{
+      display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px;
+      color:var(--muted); font-weight:600;
+    }
+    .bottom-nav a .dot{width:8px; height:8px; border-radius:50%; background:#33465b}
+    .bottom-nav a.active{background:rgba(255,255,255,.06); color:var(--text)}
+    .bottom-nav a.active .dot{background:var(--brand)}
+    @media (max-width:740px){
+      .bottom-nav{padding:6px 6px; bottom:12px}
+      .bottom-nav a{padding:10px 12px; font-size:.95rem}
+      .hide-sm{display:none}
+    }
+    @supports (padding: max(0px)){
+      .bottom-nav{bottom: max(12px, env(safe-area-inset-bottom))}
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="icon" role="img" aria-label="Designer’s Point logo badge">
+            <img src="assets/image.jpeg" alt="Designer’s Point logo">
+        </div>
+        <a href="#top"><strong>Designer’s Point</strong></a>
+      </div>
+      <nav style="display:flex; gap:8px; align-items:center">
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#process">Process</a>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="chip"><span></span> Printing queue active — fast turnarounds</div>
+        <h1>Your idea, our print—premium custom T‑shirts delivered fast</h1>
+        <p class="lead">From single tees to team uniforms, expect rich color, sharp edges, soft feel, and wash‑tested durability—with pro design help before anything goes to press.</p>
+        <div class="actions">
+          <a class="cta" href="#contact">Start your design</a>
+          <a class="ghost" href="#services">See services</a>
+        </div>
+        <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
+          <span class="tag">No MOQ</span>
+          <span class="tag">Screen Print</span>
+          <span class="tag">DTF/HTV</span>
+          <span class="tag">Jerseys & Caps</span>
+          <span class="tag">Mockups Included</span>
+        </div>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 600 380" width="100%" height="100%" style="border-radius:12px">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#1b2430"/>
+              <stop offset="1" stop-color="#0e141c"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="380" fill="url(#g)"/>
+          <g transform="translate(40,36)" fill="none" stroke="#2b3a4d" stroke-width="2">
+            <rect width="520" height="308" rx="14"/>
+            <rect x="12" y="12" width="496" height="120" rx="10" stroke="#f59f00"/>
+            <rect x="12" y="148" width="240" height="144" rx="10"/>
+            <rect x="268" y="148" width="240" height="144" rx="10"/>
+          </g>
+          <text x="300" y="352" text-anchor="middle" fill="#9db0c9" font-family="Inter" font-size="14">Preview mockups before print</text>
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <!-- Services -->
+  <section id="services" class="wrap" style="padding:44px 20px">
+    <h2 class="title">Services</h2>
+    <p class="sub">Custom apparel for teams, brands, and events—priced right for one‑offs or bulk runs.</p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Screen Printing</h3>
+        <p>Ultra‑durable inks and bold colors; ideal for bulk orders and solid graphics.</p>
+        <ul>
+          <li>Best unit pricing at quantity</li>
+          <li>Crisp results, long‑lasting washability</li>
+          <li>Perfect for tees and hoodies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Heat Transfer / DTF</h3>
+        <p>Great for detailed full‑color art, names/numbers, and small batches.</p>
+        <ul>
+          <li>No minimum quantity</li>
+          <li>Photo‑quality prints</li>
+          <li>Fast setup and turnaround</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Jerseys, Caps & More</h3>
+        <p>Team kits, polos, tote bags, and hats with embroidery or prints.</p>
+        <ul>
+          <li>Player names and numbers</li>
+          <li>Mockups included for approval</li>
+          <li>Bulk discounts available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="wrap" style="padding:8px 20px 44px">
+    <h2 class="title">How it works</h2>
+    <p class="sub">A simple, transparent flow that keeps quality high and timelines tight.</p>
+    <div class="steps">
+      <div class="card step">
+        <div class="bullet">1</div>
+        <h4>Share your idea</h4>
+        <p>Upload artwork or a sketch; we accept SVG, AI, PDF, or 300‑DPI PNG.</p>
+      </div>
+      <div class="card step">
+        <div class="bullet">2</div>
+        <h4>Pick garment & method</h4>
+        <p>We’ll recommend fabric and print type for your design and budget.</p>
+      </div>
+      <div class="card step">
+        <div class="bullet">3</div>
+        <h4>Approve mockup</h4>
+        <p>See placement, size, and colors before production starts.</p>
+      </div>
+      <div class="card step">
+        <div class="bullet">4</div>
+        <h4>Print & deliver</h4>
+        <p>Pro finishing, strict QC, and fast tracked shipping to your door.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="wrap" style="padding:8px 20px 44px">
+    <h2 class="title">About us</h2>
+    <p class="sub">Designer’s Point is a small, quality‑obsessed print studio focused on durable, great‑looking apparel for startups, creators, teams, and events.</p>
+    <div class="card">
+      <p>Every order includes expert file checks and a clean digital mockup so expectations are crystal clear before ink hits fabric. We specialize in screen printing for bold, large runs and DTF/HTV for short runs or complex artwork—so the job fits the brief, not the other way around.</p>
+      <p>No product photos yet? No problem—mockups are accurate and realistic. When the first production series is complete, we’ll showcase real shots while keeping mockups for clarity.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="wrap" style="padding:8px 20px 44px">
+    <h2 class="title">Contact</h2>
+    <p class="sub">Get a fast quote—share quantity, garment type, print size, and your artwork if available.</p>
+    <div class="contact">
+      <form class="card" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+          <input class="input" name="name" placeholder="Full name" required />
+          <input class="input" type="email" name="email" placeholder="Email" required />
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px">
+          <input class="input" name="phone" placeholder="Phone / WhatsApp" />
+          <input class="input" name="quantity" placeholder="Quantity (e.g., 25 tees)" />
+        </div>
+        <div style="margin-top:12px">
+          <textarea name="message" class="input" placeholder="Tell us about the garment, sizes, colors, and print area..."></textarea>
+        </div>
+        <div style="margin-top:14px; display:flex; gap:10px; align-items:center">
+          <button class="cta" type="submit">Request quote</button>
+          <a class="ghost" href="mailto:hello@designerspoint.example">Email instead</a>
+        </div>
+        <p style="color:var(--muted); font-size:.9rem; margin-top:10px">By submitting, you agree we may contact you regarding your request.</p>
+      </form>
+      <div class="card">
+        <h3>Reach us</h3>
+        <p><strong>Email:</strong> hello@designerspoint.example</p>
+        <p><strong>Phone/WhatsApp:</strong> +91‑90000‑00000</p>
+        <p><strong>Hours:</strong> Mon–Sat, 10:00–18:00 IST</p>
+        <hr style="border:0; border-top:1px solid var(--border); margin:14px 0">
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="#services">Services & pricing notes</a></li>
+          <li><a href="#process">Our process</a></li>
+          <li><a href="#about">About the studio</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+      <div>© <span id="y"></span> Designer’s Point. All rights reserved.</div>
+      <div>Secure payments • Clear timelines • Satisfaction guaranteed</div>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Section navigation">
+    <a href="#top"        data-section="#top"><span class="dot"></span><span class="hide-sm">Home</span></a>
+    <a href="#services"   data-section="#services"><span class="dot"></span><span class="hide-sm">Services</span></a>
+    <a href="#process"    data-section="#process"><span class="dot"></span><span class="hide-sm">Process</span></a>
+    <a href="#about"      data-section="#about"><span class="dot"></span><span class="hide-sm">About</span></a>
+    <a href="#contact"    data-section="#contact"><span class="dot"></span><span class="hide-sm">Contact</span></a>
+  </nav>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Smooth-scroll on bottom nav clicks (native CSS smooth also active)
+    document.querySelectorAll('.bottom-nav a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+          history.replaceState(null, '', id);
+        }
+      });
+    });
+
+    // Active section highlighting
+    const links = Array.from(document.querySelectorAll('.bottom-nav a'));
+    const map = new Map(links.map(l=>[l.dataset.section, l]));
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          links.forEach(l=>l.classList.remove('active'));
+          const link = map.get('#'+entry.target.id) || map.get(entry.target.id);
+          if(link) link.classList.add('active');
+        }
+      });
+    }, { root:null, rootMargin:'-50% 0px -45% 0px', threshold:0 });
+
+    ['top','services','process','about','contact'].forEach(id=>{
+      const el = document.getElementById(id) || document.querySelector('#'+id);
+      if(el) observer.observe(el);
+    });
+
+    // Keyboard nav focus ring
+    let hadKeyboardEvent = false;
+    const enableFocusStyles = ()=> document.body.classList.add('kbd');
+    const disableFocusStyles = ()=> document.body.classList.remove('kbd');
+    window.addEventListener('keydown', e=>{ if(e.key==='Tab') {hadKeyboardEvent=true; enableFocusStyles();} });
+    window.addEventListener('mousedown', ()=>{ if(hadKeyboardEvent){hadKeyboardEvent=false; disableFocusStyles();}});
+  </script>
+</body>
+</html>
