@@ -22,7 +22,7 @@
       --border:#1d2733;
       --shadow:0 8px 28px rgba(0,0,0,.45);
       --radius:16px;
-      --maxw:1100px;
+      --maxw:1900px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -81,6 +81,7 @@
       background:linear-gradient(90deg,var(--brand),var(--brand-2));
       color:#121416; padding:10px 14px; border-radius:12px; font-weight:700;
       box-shadow:var(--shadow);
+      width: 200px;
     }
     .cta:hover{transform:translateY(-1px)}
     /* Sections */
@@ -90,7 +91,7 @@
     }
     .wrap{max-width:var(--maxw); margin:0 auto}
     .hero-grid{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
+      display:flex; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
     }
     .chip{
       display:inline-flex; gap:8px; align-items:center; background:#111923; border:1px solid var(--border);
@@ -122,7 +123,7 @@
        background:linear-gradient(90deg,rgba(245,159,0,.25),rgba(255,107,0,.25)); border:1px solid var(--border)}
     /* Footer/Contact */
     .contact{
-      display:grid; grid-template-columns:1.2fr .8fr; gap:16px
+      display:grid; 
     }
     .input, textarea{
       width:100%; padding:12px 14px; border-radius:10px; background:#0e151e; color:var(--text);
@@ -160,7 +161,47 @@
     @supports (padding: max(0px)){
       .bottom-nav{bottom: max(12px, env(safe-area-inset-bottom))}
     }
+  .carousel {
+  background: #EEE;
+  
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+}
+
+.product-card {
+  display: flex;
+  margin: 20px;
+  text-align: justify;
+}
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+  .images {
+    height: 30vh;
+    width: 30vh;
+    display: block;
+    border-radius:var(--radius); padding:5px;
+  }
+  @media screen and ( min-width: 768px ) {
+  .carousel img {
+    height: 400px;
+  }
+}
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 <body>
   <!-- Nav -->
@@ -174,14 +215,25 @@
       </div>
       <nav style="display:flex; gap:8px; align-items:center">
         <a class="link" href="#services">Services</a>
+        <a class="link" href="#product">Product</a>
         <a class="link" href="#process">Process</a>
         <a class="link" href="#about">About</a>
         <a class="link" href="#contact">Contact</a>
-        <a class="cta" href="#contact">Get a Quote</a>
       </nav>
     </div>
   </header>
 
+  <section class="wrap" >
+    <div class="carousel" data-flickity='{ "autoPlay": true, "imagesLoaded": true ,  "autoPlay": 2500 , "wrapAround": true}'>
+          <img src="assets/cover picture.png" alt="cover image" class="images"/>
+          <img src="assets/dtf pint.jpeg" alt="print" class="images" />
+          <img src="assets/embrodiery.jpg" alt="embrodiery" class="images" />
+          <img src="assets/screen print.jpg" alt="screen" class="images" />
+          <img src="assets/sublimation.jpeg" alt="sublimation" class="images" />
+          <img src="assets/vinyl printing.jpg" alt="vinyl" class="images" />
+          <img src="assets/vinyl.png" alt="vinyl.png" class="images" />
+    </div>
+  </section>
   <!-- Hero -->
   <main id="top" class="hero">
     <div class="wrap hero-grid">
@@ -190,7 +242,6 @@
         <h1>Your idea, our print—premium custom T‑shirts delivered fast</h1>
         <p class="lead">From single tees to team uniforms, expect rich color, sharp edges, soft feel, and wash‑tested durability—with pro design help before anything goes to press.</p>
         <div class="actions">
-          <a class="cta" href="#contact">Start your design</a>
           <a class="ghost" href="#services">See services</a>
         </div>
         <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap">
@@ -201,25 +252,6 @@
           <span class="tag">Mockups Included</span>
         </div>
       </div>
-      <div class="card">
-        <svg viewBox="0 0 600 380" width="100%" height="100%" style="border-radius:12px">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#1b2430"/>
-              <stop offset="1" stop-color="#0e141c"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="380" fill="url(#g)"/>
-          <g transform="translate(40,36)" fill="none" stroke="#2b3a4d" stroke-width="2">
-            <rect width="520" height="308" rx="14"/>
-            <rect x="12" y="12" width="496" height="120" rx="10" stroke="#f59f00"/>
-            <rect x="12" y="148" width="240" height="144" rx="10"/>
-            <rect x="268" y="148" width="240" height="144" rx="10"/>
-          </g>
-          <text x="300" y="352" text-anchor="middle" fill="#9db0c9" font-family="Inter" font-size="14">Preview mockups before print</text>
-        </svg>
-      </div>
-    </div>
   </main>
 
   <!-- Services -->
@@ -253,6 +285,49 @@
           <li>Mockups included for approval</li>
           <li>Bulk discounts available</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product -->
+  <section id="product" class="wrap" style="padding:8px 20px 44px">
+    <h2 class="title">Customizable Merchandise</h2>
+    <p class="sub">Offer branded merchandise solutions with various products that can showcase any desired logo, design, or team name. These items serve as ideal corporate gifts, promotional giveaways, or team identity accessories</p>
+    <div class="card" >
+      <div class="product-card">
+        <div><img src="assets/product/bottle-n-mug-hamper-for-corporate.jpg" alt="bottle" style="height: 15vh; border-radius:var(--radius);"></div>
+        <div style="padding-left: 50px;">
+          <h2 class="title">Customized Mug & Bottle Set</h2>
+          <p class="sub">Elevate your corporate gifting with a personalized mug and bottle combo. Both the mug and the bottle can prominently display your company logo or branding, making them excellent choices for employee welcome kits, milestone achievements, or conference giveaways</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div><img src="assets/product/cap.jpeg" alt="cap" style="height: 15vh; border-radius:var(--radius);"></div>
+        <div style="padding-left: 50px;">
+          <h2 class="title">Personalized Caps</h2>
+          <p class="sub">Provide stylish, high-quality caps featuring custom embroidery or printing. These caps are perfect for promotional campaigns, sports teams, company outings, or branded merchandise stores. Clients can choose their logo, slogan, or any design for unique headwear</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div><img src="assets/product/custom t-shirt.jpg" alt="tshirt" style="height: 15vh; border-radius:var(--radius);"></div>
+        <div style="padding-left: 50px;">
+          <h2 class="title">Custom T-Shirts</h2>
+          <p class="sub">Supply comfortable cotton t-shirts with fully customizable print areas for logos, designs, or slogans. Ideal for team uniforms, events, startup swag, or retail marketing, these shirts can be designed as needed for any brand message or artwork</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div><img src="assets/product/hoodie.jpeg" alt="hoodie" style="height: 15vh; border-radius:var(--radius);"></div>
+        <div style="padding-left: 50px;">
+          <h2 class="title">Printed Hoodies</h2>
+          <p class="sub">Offer premium hoodies with custom print options—front, back, or multi-location. Great for merchandise, team outfits, events, or creative apparel, customers can add graphics, mascots, or unique illustrations for personal or brand use.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div><img src="assets/product/sports jeresy.jpeg" alt="jerseys" style="height: 15vh; border-radius:var(--radius);"></div>
+        <div style="padding-left: 50px;">
+          <h2 class="title">Custom Sports Jerseys</h2>
+          <p class="sub">Deliver professional-grade sports jerseys with custom names, team logos, player numbers, and unique color schemes. Suitable for sports teams, tournaments, corporate leagues, or fan clubs, these jerseys balance comfort, performance, and full design flexibility</p>
+        </div>
       </div>
     </div>
   </section>
@@ -300,7 +375,8 @@
     <h2 class="title">Contact</h2>
     <p class="sub">Get a fast quote—share quantity, garment type, print size, and your artwork if available.</p>
     <div class="contact">
-      <form class="card" name="contact" method="POST" data-netlify="true">
+      <a class="cta" href="https://wa.me/9353977980?text=I'm%20inquiring%20about%20the%20printing%20price">Contact Us</a>
+      <!-- <form class="card" name="contact" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
           <input class="input" name="name" placeholder="Full name" required />
@@ -318,38 +394,26 @@
           <a class="ghost" href="mailto:hello@designerspoint.example">Email instead</a>
         </div>
         <p style="color:var(--muted); font-size:.9rem; margin-top:10px">By submitting, you agree we may contact you regarding your request.</p>
-      </form>
-      <div class="card">
-        <h3>Reach us</h3>
-        <p><strong>Email:</strong> hello@designerspoint.example</p>
-        <p><strong>Phone/WhatsApp:</strong> +91‑90000‑00000</p>
-        <p><strong>Hours:</strong> Mon–Sat, 10:00–18:00 IST</p>
-        <hr style="border:0; border-top:1px solid var(--border); margin:14px 0">
-        <h3>Quick links</h3>
-        <ul>
-          <li><a href="#services">Services & pricing notes</a></li>
-          <li><a href="#process">Our process</a></li>
-          <li><a href="#about">About the studio</a></li>
-        </ul>
-      </div>
+      </form> -->
     </div>
   </section>
 
   <footer>
     <div class="wrap" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
       <div>© <span id="y"></span> Designer’s Point. All rights reserved.</div>
-      <div>Secure payments • Clear timelines • Satisfaction guaranteed</div>
+      <!-- <div>Secure payments • Clear timelines • Satisfaction guaranteed</div> -->
     </div>
   </footer>
 
   <nav class="bottom-nav" aria-label="Section navigation">
     <a href="#top"        data-section="#top"><span class="dot"></span><span class="hide-sm">Home</span></a>
     <a href="#services"   data-section="#services"><span class="dot"></span><span class="hide-sm">Services</span></a>
+    <a href="#product"   data-section="#product"><span class="dot"></span><span class="hide-sm">Product</span></a>
     <a href="#process"    data-section="#process"><span class="dot"></span><span class="hide-sm">Process</span></a>
     <a href="#about"      data-section="#about"><span class="dot"></span><span class="hide-sm">About</span></a>
     <a href="#contact"    data-section="#contact"><span class="dot"></span><span class="hide-sm">Contact</span></a>
   </nav>
-
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -379,7 +443,7 @@
       });
     }, { root:null, rootMargin:'-50% 0px -45% 0px', threshold:0 });
 
-    ['top','services','process','about','contact'].forEach(id=>{
+    ['top','services','product','process','about','contact'].forEach(id=>{
       const el = document.getElementById(id) || document.querySelector('#'+id);
       if(el) observer.observe(el);
     });
